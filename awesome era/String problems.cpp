@@ -23,7 +23,7 @@ void toTitleCase(string s){
     cout << s;
 }
 
-/// gfg verified anagram are string having same charaters but different arrangment
+/// gfg verified anagram are string having same characters but different arrangement
 bool areAnagram(string a,string b){
 
     if(a.length()!=b.length())
@@ -104,6 +104,42 @@ void largestPalindromeSubString(string s){
     for(int z=start;z<=start+maxLen-1;z++)
         cout << s[z];
 }
+
+/// gfg verified does work in java but cpp code might have some problem
+int longestUniqueSubstring(string str) {
+		unordered_map<char,int> Map ;
+        int windowStart = 0,windowEnd = 0,max_ = 1;
+        int len = str.length();
+        Map[str[0]] = 0;
+
+
+        for(int i=1;i<len;i++){
+            char ch = str[i];
+
+            if( Map.find(ch) !=Map.end()  ){
+                int index = Map[ch];
+                for( int j = windowStart;j<=index;j++)
+                    Map.erase(ch);
+
+                max_ = max( max_ , windowEnd - windowStart + 1);
+
+                windowStart = index + 1;
+                if(windowEnd < windowStart) {
+                	windowEnd = windowStart;
+                	windowEnd--;
+                }
+
+                Map[ch] = i;
+                windowEnd++;
+            }
+            else{
+                Map[ch] = i;
+                windowEnd++;
+            }
+        }
+
+        return max(max_, windowEnd - windowStart + 1) ;
+	}
 
 int main() {
     largestPalindromeSubString("kjqlrzzfmlvyoshiktodnsjjp");

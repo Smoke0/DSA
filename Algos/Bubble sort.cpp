@@ -1,4 +1,4 @@
-// this is standard implementation of bubble sort.
+/// this is standard implementation of bubble sort.
 #include<iostream>
 
 using namespace std;

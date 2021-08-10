@@ -37,7 +37,7 @@ void connectNodeAtSameLevel(Node* root){
         temp = q.front();
         q.pop();
         /// for very first node of level we keep previous null to indicate that node is first so nothing will connect
-        /// to firsy node.
+        /// to first node.
         if(prev)
             prev->nextRight = temp;
         if(temp->left)

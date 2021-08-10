@@ -341,22 +341,22 @@ int No_of_leaves(Node* root){
     return count;
 }
 int diameter_util(Node* root, int* max_ptr){
-    /// left stores length of longest path from root to it's left sub tree leaves and similiarly right stores
+    /// left stores length of longest path from root to it's left sub tree leaves and similarly right stores
     /// longest path from right side.
-    /// one is added to left and right to accont for root node.
+    /// one is added to left and right to account for root node.
     int left, right;
     if(root){
         left = diameter_util(root->left,max_ptr);
         right = diameter_util(root->right,max_ptr);
         if(*max_ptr < left+right+1)
             *max_ptr = left + right + 1;
-        /// the sub tree returns the longest path to it's ansestor node one is added to account for node itself.
+        /// the sub tree returns the longest path to it's ancestor node one is added to account for node itself.
         return left>right ? left+1 : right+1;
     }
     else
         return 0;
 }
-/// return the diameter of tree google diameter if binary tree if you don't know it's not width of tree.
+/// return the diameter of tree Google diameter if binary tree if you don't know it's not width of tree.
 /// we are using recursion here
 /// we are basically calculating diameter of every sub tree and updating max accordingly.
 /// this method runs at O(n) verified by geeksforgeeks.
@@ -449,7 +449,7 @@ void verticleSumutil(Node* root,int column,map<int,int> &sums){
     verticleSumutil(root->right,column+1,sums);
 }
 /// gfg verified.
-/// vertical sum of binary tree is sum of nodes falling on same verticle line a verticle line is constructed
+/// vertical sum of binary tree is sum of nodes falling on same vertical line a vertical line is constructed
 /// using distance from root of tree or sub tree for right child one is added and for left one is subtracted from root
 /// distance value. the root of tree has zero distance value and accordingly right and left sub tree values are calculated.
 /// now the real problem here is finding sum of nodes with same distance value so we use hash map for mapping a node to
@@ -1037,7 +1037,7 @@ bool isPerfectBiaryTree(Node *root){
     /// none of condition are broken so we return false.
     return true;
 }
-/// gfg verified checks whether a binary tree is full or not It's really simple just chec whether any node has
+/// gfg verified checks whether a binary tree is full or not It's really simple just check whether any node has
 /// one children or not if does return false else return true.
 bool isFullBinaryTree(Node *root){
       /// corner cases.
@@ -2506,7 +2506,7 @@ int maxWidthOfBinaryTreeLeetCode(Node* root){
     return maxWidth;
 }
 
-/// gfg verified pretty straight forward doing level order travesal save the latest value of
+/// gfg verified pretty straight forward doing level order traversal save the latest value of
 /// a node at vertical distance
 void bottomViewBinaryTree(Node* root){
     if(!root)
@@ -2724,7 +2724,7 @@ void printNoOfRootToLeafPaths_util(Node* root,map<int,int> &Map,int level = 1){
     printNoOfRootToLeafPaths_util(root->left,Map,level+1);
     printNoOfRootToLeafPaths_util(root->right,Map,level+1);
 }
-/// gfg verified really straight forward simply travese DFS and when a lead enter the path count
+/// gfg verified really straight forward simply traverse DFS and when a leaf enter the path count
 /// in hash map
 void printNoOfRootToLeafPaths(Node* root){
     map<int,int> Map;

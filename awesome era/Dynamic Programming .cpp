@@ -59,7 +59,7 @@ int goldMineProblem_rec(int arr[][10],int dp[][10],int n,int m,int i,int j=0){
     return 0;
 }
 
-/// gfg verified this problem is of an array having some values and and there are certains moves
+/// gfg verified this problem is of an array having some values and and there are certain moves
 /// that are allowed we need to find max value of path.
 int goldMineProblem(int arr[][10],int n,int m){
     int max_ = INT_MIN;
@@ -513,7 +513,7 @@ bool maxChainLength_comp(struct val a,struct val b){
 /// slight variation of LIS here we have pairs instead of single no but a pair has property that
 /// first element will be smaller and we can rearrange pairs rest is same as LIS
 int maxChainLength(struct val p[],int n){
-    sort(p,p+5,maxChainLength_comp); ///why sort? because we can rearrange pairs
+    sort(p,p+n,maxChainLength_comp); ///why sort? because we can rearrange pairs
     int dp[n] = {0};
     int key,temp,max_=0;
     dp[n-1] = 1;

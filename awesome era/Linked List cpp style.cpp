@@ -11,7 +11,7 @@ public:
     }
 };
 
-void print(Node* head)               /// This fn works perfectly.
+void print(Node* head)
 {
     if(head==NULL)
         cout<<"List is empty"<<endl;
@@ -30,9 +30,9 @@ void deleteFront(Node* &head){
         head = NULL;
     }
     else{
-    Node* n = head->next;
-    delete head;
-    head = n;
+        Node* n = head->next;
+        delete head;
+        head = n;
     }
     print(head);
 }
@@ -494,11 +494,10 @@ Node* removeDuplicateSorted(Node* head){
 
     return head;
 }
-
 /// gfg verified
 Node* removeDuplicateUnSorted(Node* head){
     unordered_map<int,Node*> Map;
-    /// iterate list and store first appearence
+    /// iterate list and store first appearance
     Node* cur = head;
     Node* temp;
     while(cur!=NULL){
@@ -512,9 +511,8 @@ Node* removeDuplicateUnSorted(Node* head){
     while(cur!=NULL){
         temp = cur->next;
 
-        while(temp!=NULL && Map[temp->data] != temp ){
+        while(temp!=NULL && Map[temp->data] != temp )
             temp = temp->next;
-        }
 
         cur->next = temp;
         cur = temp;
@@ -616,17 +614,17 @@ Node* rotateListbyK(Node* head,int k,int direction){
         /// direction == 0 means clockwise 1 means anti-clockwise
         if(direction == 0){
                 /// we break the circular list after length - k iterations.
-            for(int i=0;i<length-k;i++){
+            for(int i=0;i<length-k;i++)
                 cur = cur->next;
-            }
+
             head = cur->next;
             cur->next = NULL;
         }
         else{
             /// we break the circular list after k iterations.
-            for(int i=0;i<k;i++){
+            for(int i=0;i<k;i++)
                 cur = cur->next;
-            }
+
             head = cur->next;
             cur->next = NULL;
         }
@@ -741,7 +739,6 @@ Node* reverseList(Node*head){
             break;
         }
         cur->next = pre;
-        pre = cur;
         pre = cur;
         cur = nxt;
         nxt = nxt->next;

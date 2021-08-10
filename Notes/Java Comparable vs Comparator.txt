@@ -1,0 +1,18 @@
+In java to sort object classes we can use two ways 
+1. Comparable
+2. Comparator
+
+1. Comparable makes object comparable to other object basis on some property, we need to override the compareTo method and then we can use
+Collection.sort() or Collection.sort( Collections.reverseOrder()). Here we compare this to other object
+
+2. Comparator is more powerfull we implement this as a seprate class we can make different class based on diff parameters like a movie class we can implement sorting based on name, rating, year etc.
+
+class NameBasedComparator implements Comparator<>{
+}
+
+class RatingBasedComparator implements Comparator<>{
+}
+
+then we can pass Collections.sort( , new NameBasedComparator() ) or Collections.sort( , new RatingBasedComparator() ) 
+
+here we compare two diff object passed by overriding compare() method as it's a seprate class we can do much complex sorting by implementing diif methods.

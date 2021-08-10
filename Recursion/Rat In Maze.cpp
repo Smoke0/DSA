@@ -19,13 +19,13 @@ void PrintMaze(int **maze,int r,int c){
 bool RatInMaze(int **maze,int r,int c,int i,int j){
 
     /// this if checks whether the (i,j) cell can be part of solution or not.
-    if(i<r && j<c && maze[i][j]!=2){
+    if(i<r && j<c && maze[i][j]!=2)
         maze[i][j] = 1;
-    }
+
     /// either the cell is out of bound or cell is blocked so we return false.
-    else{
+    else
         return false;
-    }
+
     /// base case, the rat has reached the last cell so we print the maze and we set the destination to zero
     /// and return false so that we could find all other solutions.
     if(maze[r-1][c-1]==1){
@@ -35,14 +35,14 @@ bool RatInMaze(int **maze,int r,int c,int i,int j){
     }
 
     /// I ask recursion to step in right direction to reach the destination.
-    if(RatInMaze(maze,r,c,i,j+1)){
+    if(RatInMaze(maze,r,c,i,j+1))
         return true;
-    }
+
     /// I ask recursion to step in downward direction to reach the destination if we can't move to destination
     /// if we go right.
-    else if(RatInMaze(maze,r,c,i+1,j)){
+    else if(RatInMaze(maze,r,c,i+1,j))
         return true;
-    }
+
     /// niether going left or right will lead us to destination so we mark cell(i,j) as zero and return false.
     else{
         maze[i][j] = 0;
@@ -59,7 +59,7 @@ int main(){
     for(int i=0;i<r;i++)
         maze[i] = (int*)malloc(c*sizeof(int));
 
-    cout <<"Now enter maze put 0 for normal block and put 2 to indicate that block is blocked\n";
+    cout <<"Now enter maze, put 0 for normal block and put 2 to indicate that block is blocked\n";
     for(int i=0;i<r;i++)
         for(int j=0;j<c;j++)
             cin >> maze[i][j];

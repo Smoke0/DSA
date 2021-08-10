@@ -2,7 +2,6 @@
 
 using namespace std;
 
-/// finds nth fibo no. starting with one.
 int SumOfArray(int *arr,int n){
     /// base case
     if(n==1){

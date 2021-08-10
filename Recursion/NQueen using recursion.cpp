@@ -12,7 +12,7 @@ bool canQueenBePlaced(int board[10][10],int x ,int y,int n){
             return false;
         }
     }
-    /// checking left diagnal
+    /// checking left diagonal
     int row = x;
     int col = y;
     while(row>=0 && col>=0){
@@ -105,8 +105,8 @@ bool Nqueen(int board[10][10],int n,int i){
             /// if can we return true
             if(Nqueen(board,n,i+1))
                 return true;
-            /// if recursion can't place the other queen I remove queen from (i,j) position.
-            /// and of cource for loop will incremnet j and check for other possiblities.
+            /// if recursion can't place the other queens I remove queen from (i,j) position.
+            /// and of course for loop will increment j and check for other possibilities.
             else{
                 board[i][j] = 0;
             }

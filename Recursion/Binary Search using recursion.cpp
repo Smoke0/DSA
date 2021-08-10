@@ -2,7 +2,6 @@
 
 using namespace std;
 
-/// finds nth fibo no. starting with one.
 void bs(int *arr,int s,int l,int x){
     /// base case
     if(s>l){

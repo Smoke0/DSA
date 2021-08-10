@@ -9,26 +9,27 @@ void rotateArray(int *arr,int n,int k,unordered_map<int,int> &index){
     unordered_map<int,int> :: iterator it;
     /// rotate left
     if(k<0){
-    k = abs(k);
-    k = k%n;
-    if(k==0)
-        return;
-    for(int i=0;i<n;i++){
-        it = index.find(i);
-        it->second = (it->second + k)%n;
-    }
+        k = abs(k);
+        k = k%n;
+        if(k==0)
+            return;
+        for(int i=0;i<n;i++){
+            it = index.find(i);
+            it->second = (it->second + k)%n;
+        }
     /// rotate right
     }
+
     else{
-    k = k%n;
-    if(k==0)
-        return;
-    for(int i=0;i<n;i++){
-        it = index.find(i);
-        it->second = (it->second - k)%n;
-        if(it->second <0)
-            it->second +=n;
-    }
+        k = k%n;
+        if(k==0)
+            return;
+        for(int i=0;i<n;i++){
+            it = index.find(i);
+            it->second = (it->second - k)%n;
+            if(it->second <0)
+                it->second +=n;
+        }
     }
 }
 void printRotatedArray(int *arr,int n,unordered_map<int,int> &index){

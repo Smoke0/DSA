@@ -1,0 +1,6 @@
+to write custom comparotor we override compare method in java
+ we return int in that now meaning of what we are returning. 
+-1 or any negative val means first argument is less than the 2nd one hence first argument should be before 2nd one.
+zero means both are equal so do nothing
+
+any positive value means that the first argument should be placed after 2nd one

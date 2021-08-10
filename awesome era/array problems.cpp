@@ -576,7 +576,7 @@ int noOfStrictlyIncreasingSubArrays(int arr[],int n){
     int winSum = 0, winStart=0,winEnd=-1;
     int minStart=0,minEnd=INT_MAX;
     for(int i=0;i<n;){
-        /// increseaing window
+        /// increasing window
         if(winSum <= x){
             winEnd++;
             winSum+=arr[i];
@@ -639,7 +639,7 @@ int minStepsToTargetArr(int arr[],int n){
     return count;
 }
 
-/// gfg verified suprisingly good question
+/// gfg verified surprisingly good question
 int minMergeOperationToMakePalindrome(int arr[],int n){
     int i = 0, j = n-1;
     int merges = 0;
@@ -853,26 +853,96 @@ vector<int> intersectionOfArrays(int arr1[],int arr2[],int n,int m){
         map2[ arr2[i] ]++;
 
     for(itr=map1.begin();itr!=map1.end();itr++){
-        if( map2.find(itr->first) != map2.end() )
-            out.push_back(itr->first);
+        if( map2.find(itr->first) !=map2.end() ) {
+            int times = min( itr->second , map2[ itr->first] );
+            for(int i=0;i<times;i++)
+                out.push_back( itr->first  );
+        }
     }
 
     return out;
 }
 
+
+
 /// -----------------------------------------------------------------------------------------------------------------------
 ///------------------------------------------------- array searching-------------------------------------------------------
 /// -----------------------------------------------------------------------------------------------------------------------
 
+int equilibriumPoint(int arr[],int n){
+    long sum = 0;
+    for(int i=0;i<n;i++)
+        sum+=arr[i];
+    long leftSum = 0;
+
+    for(int i=0;i<n;i++){
+        if( 2*leftSum == sum-arr[i])
+            return i+1;
+
+        leftSum+=arr[i];
+    }
+
+    return -1;
+}
+
+int minElement(int a,int b,int c){
+      return min( a, min(b,c) );
+  }
+
+  int maxElement(int a,int b,int c){
+      return max( a, max(b,c) );
+  }
+
+vector<int> smallestDifferenceTriplet(int a[], int b[], int c[], int n){
+
+        vector<int> out;
+        sort(a,a+n);
+        sort(b,b+n);
+        sort(c,c+n);
+
+        int i = 0, j = 0, k = 0;
+        int minDiff = INT_MAX;
+
+        while( i<n && j<n && k< n ){
+
+            int min_ = minElement( a[i],b[j],c[k] );
+
+            if(  minDiff > maxElement( a[i],b[j],c[k]) -  min_ ){
+
+                cout << "Executed\n";
+                minDiff = maxElement( a[i],b[j],c[k]) -  min_;
+                out.clear();
+                out.push_back( a[i]);
+                out.push_back(b[j]);
+                out.push_back( c[k]);
+            }
+
+
+            if( a[i] == min_ )
+                i++;
+            else if( b[j] == min_ )
+                j++;
+            else
+                k++;
+        }
+
+        sort( out.begin(), out.end(), greater<int>() );
+
+        return out;
+    }
+
+
 int main(){
     ///4 52 55 100 33 61 77 69 40 13 27 87 95 40 96 71 35 79 68 2 98 3 18 93 53 57 2 81 87 42 66 90 45 20 41 30 32 18 98 72 82 76 10 28 68 57 98 54 87 66 7 84 20 25 29 72 33 30 4 20 71 69 9 16 41 50 97 24 19 46 47 52 22 56 80 89 65 29 42 51 94 1 35 65 25
-    int arr1[] = {7, 1, 5, 2, 3, 6},arr2[] = {3, 8, 6, 20, 7};
+    int arr1[] = {5,2,8},arr2[] = {10,7,12}, arr3[] = {9,14,6};
     int n1 = sizeof(arr1)/sizeof(arr1[0]);
     int n2 = sizeof(arr2)/sizeof(arr2[0]);
     ///cout << minSwapsToSortArray(arr1,n1);
     ///printArray(arr1,n1);
-    vector<int> out =  intersectionOfArrays(arr1,arr2,n1,n2);
-    for(int i=0;i<out.size();i++)
-        cout << out[i] <<" ";
+    vector<int> out = smallestDifferenceTriplet(arr1,arr2,arr3,n1);
+
+    for(auto i:out)
+        cout << i <<" ";
+
     return 0;
 }

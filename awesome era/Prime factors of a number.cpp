@@ -21,9 +21,9 @@ void printPrimesFactors(int n){
         }
     }
     /// now n must be prime number or it might be one, if it's a prime print it.
-    if(n>2){
+    if(n>2)
         cout << n;
-    }
+
 }
 int main() {
     int n;

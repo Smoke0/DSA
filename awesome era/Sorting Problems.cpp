@@ -270,7 +270,7 @@ int countInversionsInArray(int arr[],int low,int high){
 }
 
 /// gfg verified leet code verified basically we are putting 0 to left and 2 to right and 1 should be
-/// placed right if we put all one and 2's right
+/// placed right if we put all zeros and 2 in right position
 void sortArrayOf012(int arr[],int n){
     /// i0 next index to put zero i2 next index to put 2
     int i0=0,i2=n-1;

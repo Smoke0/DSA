@@ -1,5 +1,5 @@
-// Documentation.
-/* This  programs finds factorial, nCr and all the subsets of a set with r elements*/
+/// Documentation.
+/// This  programs finds factorial, nCr and all the subsets of a set with r elements
 
 #include<iostream>
 using namespace std;
@@ -7,8 +7,7 @@ using namespace std;
 int fact(int n)
 {
     int res = 1;
-    while(n!=1)
-    {
+    while(n!=1){
         res = res*n;
         n--;
     }
@@ -26,24 +25,19 @@ void util(int arr[], bool set[], int start, int last,int r, int count=0)
     for (int i=0;i<=last;i++)
         temp[i]  = set[i];
 
-    if (count!=r-1)
-    {
+    if (count!=r-1){
         temp[start] = 1;
         util(arr,temp,start+1,last,r,count+1);
     }
 
-    if (count==r-1)
-    {
+    if (count==r-1){
         temp[start] = 1;
             count++;
         int k = start;
 
-        while (k<last+1)
-        {
-            if (count==r)
-            {
-                for (int j=0;j<=last;j++)
-                {
+        while (k<last+1){
+            if (count==r){
+                for (int j=0;j<=last;j++){
                     if(temp[j]==1)
                     cout<<arr[j]<<" ";
                 }
@@ -55,7 +49,7 @@ void util(int arr[], bool set[], int start, int last,int r, int count=0)
         return;
     }
     if (start<last)
-    util(arr,set,start+1,last,r,count);
+        util(arr,set,start+1,last,r,count);
 }
 
 void subsets(int arr[], int n, int r)

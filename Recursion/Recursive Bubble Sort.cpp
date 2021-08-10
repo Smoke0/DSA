@@ -5,9 +5,9 @@ using namespace std;
 void BubbleSort(int *arr,int n){
     /// base case
     /// if array has only one element it's sorted.
-    if(n==1){
+    if(n==1)
         return;
-    }
+
     /// I am putting the largest element in correct position for bigger array.
     for(int j=0;j<n-1;j++){
         if(arr[j]>arr[j+1])
